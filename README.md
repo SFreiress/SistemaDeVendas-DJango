@@ -6,3 +6,7 @@
  pip install django
  python manage.py runserver 
 pip install mysqlclient
+
+
+python manage.py makemigrations
+python manage.py migrate
