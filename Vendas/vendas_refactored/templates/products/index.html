@@ -11,16 +11,16 @@
 <body>
 
     <body>
-        Produtos
-
+        <h4>Produtos</h4>
+        <br></br>
         <ul>
             {% for produto in produtos %}
             <li>
-                {{produto.id}} - {{produto.descricao}}
+                {{produto.descricao}} - R$ {{produto.preco}} - {{produto.qtd_estoque}}
             </li>
             {% endfor %}
         </ul>
-
+        <br></br>
         <form action="{% url 'salvar' %}" method="POST">
             {% csrf_token %}
             <div class="grid grid-cols-4 gap-4 mb-6">
