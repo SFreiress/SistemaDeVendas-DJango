@@ -9,7 +9,12 @@ def home(request):
 
 
 def salvar(request):
-    descricao = request.POST.get("descricao")
-    Produto.objects.create(descricao=descricao)
+    descricaoTS = request.POST.get("descricao")
+    precoTS = request.POST.get("preco")
+    qtd_estoqueTS = request.POST.get("qtd_estoque")
+    print("desc", descricaoTS)
+    print("prec", precoTS)
+    print("qtd", qtd_estoqueTS)
+    Produto.objects.create(descricao=descricaoTS, preco=precoTS, qtd_estoque=qtd_estoqueTS)
     produtos = Produto.objects.all()
     return render(request, "index.html", {"produtos": produtos})
