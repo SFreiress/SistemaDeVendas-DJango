@@ -77,11 +77,12 @@ WSGI_APPLICATION = 'Vendas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'vendasdb',
+        'HOST': '127.0.0.1',
+        'NAME': 'sqldb',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST':'localhost',
-        'PORT':'3306',
+        'PORT': '3307',
+        'CONN_MAX_AGE': 60,  # Retry every 60 seconds
     }
 }
 
