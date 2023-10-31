@@ -35,7 +35,9 @@ _`test: "Deve retornar ClientModel quando 200"`_
 _`test: mock para "Deve retornar ClientModel quando 200"`_
 
 ### chore: mudança em build ou bibliotecas
-_chore: novas bibliotecas_
+_`chore: novas bibliotecas`_
+
+_`chore: ajuste docker`_
 
 ## Padrão de nomenclatura
 ### HTML:
