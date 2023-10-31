@@ -5,18 +5,14 @@ services:
         ports:
             - "8000:8000"
         image: vendas:django
-        command: python Vendas/manage.py runserver 0.0.0.0:8000 
+        command: bash -c "python Vendas/manage.py makemigrations && python Vendas/manage.py migrate && python Vendas/manage.py runserver 0.0.0.0:8000"
         depends_on:
-            - db
-    db:
-        container_name: mysqldb
-        restart: always        
+            - mysqldb
+    mysqldb:       
         image: mysql:8.0
         ports:
-            - "3307:3307"
+            - "3307:3306"
         environment:
-            MYSQL_DB: sqldb
-            MYSQL_ROOT_PASSWORD: root
-            'HOST': 'sqldb'
-            extra_hosts:
-                "host.docker.internal:host-gateway"
+            MYSQL_DATABASE: 'appdb'
+            MYSQL_PASSWORD: 'root'
+            MYSQL_ROOT_PASSWORD: 'root'
