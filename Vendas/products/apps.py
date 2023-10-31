@@ -1,6 +1,7 @@
 from django.apps import AppConfig
 
 
-class VendasRefactoredConfig(AppConfig):
+class ProductsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'vendas_refactored'
+    name = 'products'
+    verbose_name = 'Products'

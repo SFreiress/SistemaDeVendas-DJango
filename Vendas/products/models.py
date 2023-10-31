@@ -13,7 +13,7 @@ class Produto(models.Model):
 
     def __str__(self) -> str:
         return self.descricao
-    
+
 class Cliente(models.Model):
     id = models.UUIDField(
         default=uuid.uuid4, editable=False, unique=True, primary_key=True
@@ -25,9 +25,8 @@ class Cliente(models.Model):
     celular = models.CharField(max_length=100)
     cep = models.CharField(max_length=100)
     endereco = models.CharField(max_length=200)
-    numero = models.IntegerField()
+    numero = models.IntegerField(max_length=6)
     complemento = models.CharField(max_length=50)
     bairro = models.CharField(max_length=50)
     cidade = models.CharField(max_length=50)
     uf = models.CharField(max_length=2)
-    

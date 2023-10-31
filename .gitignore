@@ -1,8 +1,6 @@
 #Venv
 /venv
-/vendas/vendas/__pycache__
-Vendas/vendas_refactored/__pycache__
-Vendas/vendas_refactored/migrations/__pycache__
+**/__pycache__/
 
 # Django #
 *.log
