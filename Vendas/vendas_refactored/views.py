@@ -7,7 +7,6 @@ def home(request):
     produtos = Produto.objects.all()
     return render(request, "products/index.html", {"produtos": produtos})
 
-
 def salvar(request):
     descricaoTS = request.POST.get("descricao")
     precoTS = request.POST.get("preco")
