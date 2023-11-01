@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <body>
+        <h4>Produtos</h4>
+        <br></br>
+        <ul>
+            {% for produto in produtos %}
+            <li>
+                {{produto.descricao}} - R$ {{produto.preco}} - {{produto.qtd_estoque}}
+            </li>
+            {% endfor %}
+        </ul>
+        <br></br>
+        <form action="{% url 'salvar' %}" method="POST">
+            {% csrf_token %}
+            <div class="grid grid-cols-4 gap-4 mb-6">
+                <div>
+                    <label for="descricaoInput"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Descrição</label>
+                    <input type="text" id="descricaoInput" name="descricao"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="precoInput"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Preço</label>
+                    <input type="number" id="precoInput" name="preco"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="qtd_estoqueInput"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Quantidade</label>
+                    <input type="number" id="qtd_estoqueInput" name="qtd_estoque"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+            </div>
+            <button type="submit"
+                class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Salvar</button>
+
+        </form>
+    </body>
+
+</body>
+
+</html>
