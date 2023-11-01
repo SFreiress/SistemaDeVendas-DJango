@@ -6,6 +6,8 @@ services:
             - "8000:8000"
         image: vendas:django
         command: bash -c "python Vendas/manage.py makemigrations && python Vendas/manage.py migrate && python Vendas/manage.py runserver 0.0.0.0:8000"
+        volumes:
+            - ./:/app
         depends_on:
             - mysqldb
     mysqldb:
