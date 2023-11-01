@@ -8,7 +8,7 @@ services:
         command: bash -c "python Vendas/manage.py makemigrations && python Vendas/manage.py migrate && python Vendas/manage.py runserver 0.0.0.0:8000"
         depends_on:
             - mysqldb
-    mysqldb:       
+    mysqldb:
         image: mysql:8.0
         ports:
             - "3307:3306"
