@@ -7,7 +7,7 @@ def home(request):
     produtos = Produto.objects.all()
     return render(request, "products.html", {"produtos": produtos})
 
-def save(request):
+def salvar(request):
     descricaoTS = request.POST.get("descricao")
     precoTS = request.POST.get("preco")
     qtd_estoqueTS = request.POST.get("qtd_estoque")

@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import home, save
+from .views import home, salvar
 
 urlpatterns = [
     path("", home),
-    path("save/", save, name="save"),
+    path("salvar/", salvar, name="salvar"),
 ]
