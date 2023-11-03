@@ -1,4 +1,5 @@
 import uuid
+
 from django.db import models
 
 
@@ -28,5 +29,4 @@ class Cliente(models.Model):
     numero = models.IntegerField()
     complemento = models.CharField(max_length=50)
     bairro = models.CharField(max_length=50)
-    cidade = models.CharField(max_length=50)
-    uf = models.CharField(max_length=2)
+    cidade = models.CharField(max_length=50)  

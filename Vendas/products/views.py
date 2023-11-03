@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+
 from .models import Produto
 
 
@@ -8,9 +9,13 @@ def home(request):
     return render(request, "products.html", {"produtos": produtos})
 
 def salvar(request):
-    descricaoTS = request.POST.get("descricao")
-    precoTS = request.POST.get("preco")
-    qtd_estoqueTS = request.POST.get("qtd_estoque")
-    Produto.objects.create(descricao=descricaoTS, preco=precoTS, qtd_estoque=qtd_estoqueTS)
+    if request.method == 'POST':
+        Produto.objects.create(
+            descricao=request.POST.get("descricao"),
+            preco=request.POST.get("preco"),
+            qtd_estoque=request.POST.get("qtd_estoque")
+        )
+        return redirect('home')
+    
     produtos = Produto.objects.all()
-    return render(request, "prodcuts.html", {"produtos": produtos})
+    return render(request, "products.html", {"produtos": produtos})

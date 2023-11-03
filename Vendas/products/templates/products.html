@@ -11,7 +11,7 @@
             {% endfor %}
         </ul>
         <br></br>
-        <form action="{% url 'save' %}" method="POST">
+        <form action="{% url 'salvar' %}" method="POST">
             {% csrf_token %}
             <div class="grid grid-cols-4 gap-4 mb-6">
                 <div>
