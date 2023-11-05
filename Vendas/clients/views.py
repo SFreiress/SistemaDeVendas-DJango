@@ -1,11 +1,12 @@
 from django.shortcuts import redirect, render
-from products.models import Cliente
+from .models import Cliente
 
 
 # Create your views here.
 def home(request):
     clientes = Cliente.objects.all()
     return render(request, "clients.html", {"clientes": clientes})
+
 
 def salvar(request):
     if request.method == 'POST':
@@ -22,7 +23,7 @@ def salvar(request):
             bairro=request.POST.get("bairro"),
             cidade=request.POST.get("cidade"),
         )
-        return redirect('home')
+        return redirect('clients:home')
     
     clientes = Cliente.objects.all()
     return render(request, "clients.html", {"clientes": clientes})

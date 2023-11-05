@@ -15,7 +15,7 @@ def salvar(request):
             preco=request.POST.get("preco"),
             qtd_estoque=request.POST.get("qtd_estoque")
         )
-        return redirect('home')
+        return redirect('products:home')
     
     produtos = Produto.objects.all()
     return render(request, "products.html", {"produtos": produtos})
