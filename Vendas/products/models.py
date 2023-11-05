@@ -30,3 +30,4 @@ class Cliente(models.Model):
     complemento = models.CharField(max_length=50)
     bairro = models.CharField(max_length=50)
     cidade = models.CharField(max_length=50)  
+    uf = models.CharField(max_length=50)
