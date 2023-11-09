@@ -1,31 +1,12 @@
-{% extends "base.html" %} {% block layout %}
-<main class="flex w-full h-screen dark:bg-gray-900 dark:text-white">
-  <nav class="w-1/6 h-full bg-gray-700">
-    <ul class="dropdown">
-      <span
-        class="nav-link"
-        href="#"
-        role="button"
-        data-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Produtos
-      </span>
-      <div class="dropdown-menu">
-        <span class="dropdown-item" href="#">Listagem</span>
-        <span class="dropdown-item" href="#">Novo</span>
-      </div>
-    </ul>
-    <ul class="dropdown">
-      <span class="nav-link" role="button" data-toggle="dropdown">
-        Clientes
-      </span>
-      <div class="dropdown-menu">
-        <span class="dropdown-item" href="#">Listagem</span>
-        <span class="dropdown-item" href="#">Novo</span>
-      </div>
-    </ul>
-  </nav>
-  <section class="p-5">{% block content %} {% endblock content %}</section>
-</main>
-{% endblock layout %} {% block js %} {% endblock js %}
+{% extends "base.html" %}
+
+{% block layout %}
+  <main class="flex w-full h-screen bg-zinc-900 text-gray-200 space-x-5 p-5">
+    {% include "./components/navbar.html" %}
+    <section class="w-5/6 h-full rounded-xl">
+        {% block content %}{% endblock content %}
+    </section>
+  </main>
+{% endblock layout %}
+
+{% block js %}{% endblock js %}
