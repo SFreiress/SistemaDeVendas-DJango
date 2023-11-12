@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('celular', models.CharField(max_length=100)),
                 ('cep', models.CharField(max_length=100)),
                 ('endereco', models.CharField(max_length=200)),
-                ('numero', models.IntegerField(max_length=6)),
+                ('numero', models.IntegerField()),
                 ('complemento', models.CharField(max_length=50)),
                 ('bairro', models.CharField(max_length=50)),
                 ('cidade', models.CharField(max_length=50)),
