@@ -18,3 +18,5 @@ services:
             MYSQL_DATABASE: 'appdb'
             MYSQL_PASSWORD: 'root'
             MYSQL_ROOT_PASSWORD: 'root'
+        volumes:
+            - ./mysql-data:/var/lib/mysql

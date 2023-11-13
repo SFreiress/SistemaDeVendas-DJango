@@ -1,5 +1,15 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h4>Fornecedores</h4>
+    <h1 class="text-xl">Fornecedores</h1>
+
+    <br></br>
+
+    <ul>
+        {% for fornecedor in fornecedores %}
+        <li>
+            {{fornecedor.nome}} - {{fornecedor.cnpj}}- {{fornecedor.email}}
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock content %}

@@ -12,12 +12,9 @@ def salvar(request):
     if request.method == 'POST':
         Fornecedor.objects.create(
             nome=request.POST.get("nome"),
-            rg=request.POST.get("rg"),
-            cpf=request.POST.get("cpf"),
+            cnpj=request.POST.get("cnpj"),
             email=request.POST.get("email"),
-            senha=request.POST.get("senha"),
-            cargo=request.POST.get("cargo"),
-            nivel_acesso=request.POST.get("nivel_acesso"),
+            telefone=request.POST.get("telefone"),
             celular=request.POST.get("celular"),
             cep=request.POST.get("cep"),
             endereco=request.POST.get("endereco"),
@@ -25,6 +22,7 @@ def salvar(request):
             complemento=request.POST.get("complemento"),
             bairro=request.POST.get("bairro"),
             cidade=request.POST.get("cidade"),
+            uf=request.POST.get("uf"),
         )
         return redirect('suppliers:home')
     
