@@ -28,6 +28,7 @@ urlpatterns = [
     path("products/", include("products.urls", namespace="products")),
     path("clients/", include("clients.urls", namespace="clients")),
     path("employees/", include("employees.urls", namespace="employees")),
+    path("suppliers/", include("suppliers.urls", namespace="suppliers")),
 ]
 
 if settings.DEBUG:
