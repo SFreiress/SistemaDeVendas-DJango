@@ -10,6 +10,7 @@ class Cliente(models.Model):
     rg = models.CharField(max_length=100)
     cpf = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
+    telefone = models.CharField(max_length=100)
     celular = models.CharField(max_length=100)
     cep = models.CharField(max_length=100)
     endereco = models.CharField(max_length=200)
