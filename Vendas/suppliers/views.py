@@ -7,6 +7,9 @@ def home(request):
     fornecedores = Fornecedor.objects.all()
     return render(request, "suppliers.html", {"fornecedores": fornecedores})
 
+def registerSupplier(request):
+    return render(request, "registerSupplier.html")
+
 
 def salvar(request):
     if request.method == 'POST':
