@@ -1,15 +1,15 @@
-document.addEventListener("DOMContentLoaded", (event) => {
-    const barsButton = document.querySelector('.navbar-bars-button')
-    const navbarContent = document.querySelector('.navbar-content')
-    const navbarFooter = document.querySelector('.navbar-footer')
+$(document).ready(function() {
+    const barsButton = $('.navbar-bars-button');
+    const navbarContent = $('.navbar-content');
+    const navbarFooter = $('.navbar-footer');
 
-    barsButton.addEventListener('click', () => {
-        if (navbarContent.classList.contains('hidden')){
-            navbarContent.classList.remove('hidden')
-            navbarFooter.classList.remove('hidden')
+    barsButton.on('click', function() {
+        if (navbarContent.hasClass('hidden')) {
+            navbarContent.removeClass('hidden');
+            navbarFooter.removeClass('hidden');
         } else {
-            navbarContent.classList.add('hidden')
-            navbarFooter.classList.add('hidden')
+            navbarContent.addClass('hidden');
+            navbarFooter.addClass('hidden');
         }
-    })
+    });
 });
