@@ -1,9 +1,10 @@
-from products.views import home, salvar
+from products.views import home, create, edit
 from django.urls import path
 
 app_name = "products"
  
 urlpatterns = [
     path("", home, name="home"),
-    path("salvar/", salvar, name="salvar"),
+    path("create/", create, name="create"),
+    path("edit/<str:id>/", edit, name="edit")
 ]
