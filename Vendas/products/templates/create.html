@@ -27,11 +27,14 @@
             </div>
         </div>
         <div class="grid grid-cols-4 gap-4">
-            <div class="w-fit col-span-2 justify-self-end">
+            <div class="col-span-2 justify-self-end">
+                <a class="mr-4" href="{% url 'products:home' %}">
+                    <button type="button"
+                        class="outline-none focus:ring-4 focus:ring-red-800 font-medium rounded-md text-md px-6 py-3 bg-red-600 hover:bg-red-700">Cancelar</button>
+                </a>
                 <button type="submit"
                     class="outline-none focus:ring-4 focus:ring-green-800 font-medium rounded-md text-md px-6 py-3 bg-green-600 hover:bg-green-700">Salvar</button>
             </div>
         </div>
-
     </form>
 {% endblock content %}
