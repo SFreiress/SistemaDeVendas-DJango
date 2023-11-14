@@ -7,6 +7,10 @@ def home(request):
     funcionarios = Funcionario.objects.all()
     return render(request, "employees.html", {"funcionarios": funcionarios})
 
+def registerEmployee(request):
+    return render(request, "employee.html")
+
+
 
 def salvar(request):
     if request.method == 'POST':
