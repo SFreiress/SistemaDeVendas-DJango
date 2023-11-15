@@ -2,15 +2,14 @@ from django.shortcuts import redirect, render, get_object_or_404
 from .models import Funcionario
 from django.contrib.auth.decorators import login_required
 
-
 # Create your views here.
 @login_required(login_url="/login/")
 def home(request):
-    funcionarios = Funcionario.objects.all()
-    return render(request, "employees.html", {"funcionarios": funcionarios})
+    funcionarios=Funcionario.objects.all()
+    return render(request, "list_employee.html", {"funcionarios": funcionarios})
 
 @login_required(login_url="/login/")
-def salvar(request):
+def create(request):
     if request.method == 'POST':
         Funcionario.objects.create(
             nome=request.POST.get("nome"),
@@ -29,12 +28,14 @@ def salvar(request):
             cidade=request.POST.get("cidade"),
         )
         return redirect('employees:home')
-    return render(request, "registerEmployee.html")
+
+    return render(request, "create_employee.html")
 
 @login_required(login_url="/login/")
-def atualizar(request, id):
+def edit(request, id):
+    funcionario=get_object_or_404(Funcionario, id=id)
+
     if request.method == 'POST':
-        funcionario = get_object_or_404(Funcionario, id=id)
         funcionario.nome=request.POST.get("nome")
         # funcionario.rg=request.POST.get("rg")
         funcionario.cpf=request.POST.get("cpf")
@@ -49,9 +50,7 @@ def atualizar(request, id):
         funcionario.complemento=request.POST.get("complemento")
         funcionario.bairro=request.POST.get("bairro")
         funcionario.cidade=request.POST.get("cidade")
-        
         funcionario.save()
         return redirect('employees:home')
-    
-    funcionarios = Funcionario.objects.get(id=id)
-    return render(request, "updateEmployee.html", {"funcionario": funcionarios})
+
+    return render(request, "edit_employee.html", {"funcionario": funcionario})

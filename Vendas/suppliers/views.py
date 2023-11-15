@@ -2,11 +2,10 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Fornecedor
 
-
 # Create your views here.
 @login_required(login_url="/login/")
 def home(request):
-    fornecedores = Fornecedor.objects.all()
+    fornecedores=Fornecedor.objects.all()
     return render(request, "list_supplier.html", {"fornecedores": fornecedores})
 
 @login_required(login_url="/login/")
@@ -32,7 +31,7 @@ def create(request):
 
 @login_required(login_url="/login/")
 def edit(request, id):
-    fornecedor = get_object_or_404(Fornecedor, id=id)
+    fornecedor=get_object_or_404(Fornecedor, id=id)
 
     if request.method == 'POST':
         fornecedor.nome=request.POST.get("nome")
