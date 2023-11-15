@@ -6,5 +6,5 @@ app_name = "products"
 urlpatterns = [
     path("", home, name="home"),
     path("create/", create, name="create"),
-    path("edit/<str:id>/", edit, name="edit")
+    path("edit/<uuid:id>/", edit, name="edit")
 ]

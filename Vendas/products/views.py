@@ -6,7 +6,7 @@ from .models import Produto
 # Create your views here.
 def home(request):
     produtos = Produto.objects.all()
-    return render(request, "products.html", {"produtos": produtos})
+    return render(request, "list_product.html", {"produtos": produtos})
 
 def create(request):
     if request.method == 'POST':
@@ -17,16 +17,16 @@ def create(request):
         )
         return redirect('products:home')
 
-    return render(request, "create.html")
+    return render(request, "create_product.html")
 
 def edit(request, id):
     produto = get_object_or_404(Produto, pk=id)
     
     if request.method == 'POST':
-        produto.descricao = request.POST.get("descricao")
-        produto.preco = request.POST.get("preco")
-        produto.qtd_estoque = request.POST.get("qtd_estoque")
+        produto.descricao=request.POST.get("descricao")
+        produto.preco=request.POST.get("preco")
+        produto.qtd_estoque=request.POST.get("qtd_estoque")
         produto.save()
         return redirect('products:home')
     
-    return render(request, "edit.html", {"produto": produto})
+    return render(request, "edit_product.html", {"produto": produto})

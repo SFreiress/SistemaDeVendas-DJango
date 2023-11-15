@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="grid grid-cols-4 gap-4 mb-6">
+        <h4 class="text-2xl font-bold mb-10">Fornecedores</h4>
+        <div class="col-span-3 justify-self-end">
+            <a href="{% url 'suppliers:create' %}">
+                <button
+                    class="outline-none focus:ring-4 focus:ring-green-800 font-medium rounded-md text-md px-6 py-3 bg-green-600 hover:bg-green-700">Novo</button>
+            </a>
+        </div>
+    </div>
+    <div class="grid grid-cols-4 gap-4">
+        <div class="col-span-4 relative max-h-[700px] overflow-x-auto shadow-md rounded-md">
+            <table class="w-full text-md text-left text-gray-300">
+                <thead class="text-md bg-zinc-700">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Nome
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Email
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Telefone
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Celular
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            CEP
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Endereço
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Cidade
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            UF
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Ações
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fornecedor in fornecedores %}
+                        <tr class="border-y-2 border-zinc-500 hover:bg-zinc-700">
+                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                                {{fornecedor.nome}}
+                            </th>
+                            <td class="px-6 py-4">
+                                {{fornecedor.email}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{fornecedor.telefone}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{fornecedor.celular}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{fornecedor.cep}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{fornecedor.endereco}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{fornecedor.cidade}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{fornecedor.uf}}
+                            </td>
+                            <td class="px-6 py-4">
+                                <a href="{% url 'suppliers:edit' fornecedor.id %}">
+                                    <button
+                                        class="outline-none focus:ring-4 focus:ring-blue-800 font-medium rounded-md text-md px-5 py-2.5 bg-blue-600 hover:bg-blue-700">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock content %}
