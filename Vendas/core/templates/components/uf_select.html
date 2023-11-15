@@ -1,0 +1,65 @@
+{% if screen == "create" %}
+    <select id="ufInput" name="uf" required
+    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none">
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espírito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option>
+        <option value="SE">Sergipe</option>
+        <option value="TO">Tocantins</option>
+        <option value="EX">Estrangeiro</option>
+    </select>
+{% else %}
+    <select id="ufInput" name="uf" required
+        class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none">
+        <option value="AC" {% if fornecedor.uf == 'AC' %} selected {% endif %}>Acre</option>
+        <option value="AL" {% if fornecedor.uf == 'AL' %} selected {% endif %}>Alagoas</option>
+        <option value="AP" {% if fornecedor.uf == 'AP' %} selected {% endif %}>Amapá</option>
+        <option value="AM" {% if fornecedor.uf == 'AM' %} selected {% endif %}>Amazonas</option>
+        <option value="BA" {% if fornecedor.uf == 'BA' %} selected {% endif %}>Bahia</option>
+        <option value="CE" {% if fornecedor.uf == 'CE' %} selected {% endif %}>Ceará</option>
+        <option value="DF" {% if fornecedor.uf == 'DF' %} selected {% endif %}>Distrito Federal</option>
+        <option value="ES" {% if fornecedor.uf == 'ES' %} selected {% endif %}>Espírito Santo</option>
+        <option value="GO" {% if fornecedor.uf == 'GO' %} selected {% endif %}>Goiás</option>
+        <option value="MA" {% if fornecedor.uf == 'MA' %} selected {% endif %}>Maranhão</option>
+        <option value="MT" {% if fornecedor.uf == 'MT' %} selected {% endif %}>Mato Grosso</option>
+        <option value="MS" {% if fornecedor.uf == 'MS' %} selected {% endif %}>Mato Grosso do Sul</option>
+        <option value="MG" {% if fornecedor.uf == 'MG' %} selected {% endif %}>Minas Gerais</option>
+        <option value="PA" {% if fornecedor.uf == 'PA' %} selected {% endif %}>Pará</option>
+        <option value="PB" {% if fornecedor.uf == 'PB' %} selected {% endif %}>Paraíba</option>
+        <option value="PR" {% if fornecedor.uf == 'PR' %} selected {% endif %}>Paraná</option>
+        <option value="PE" {% if fornecedor.uf == 'PE' %} selected {% endif %}>Pernambuco</option>
+        <option value="PI" {% if fornecedor.uf == 'PI' %} selected {% endif %}>Piauí</option>
+        <option value="RJ" {% if fornecedor.uf == 'RJ' %} selected {% endif %}>Rio de Janeiro</option>
+        <option value="RN" {% if fornecedor.uf == 'RN' %} selected {% endif %}>Rio Grande do Norte</option>
+        <option value="RS" {% if fornecedor.uf == 'RS' %} selected {% endif %}>Rio Grande do Sul</option>
+        <option value="RO" {% if fornecedor.uf == 'RO' %} selected {% endif %}>Rondônia</option>
+        <option value="RR" {% if fornecedor.uf == 'RR' %} selected {% endif %}>Roraima</option>
+        <option value="SC" {% if fornecedor.uf == 'SC' %} selected {% endif %}>Santa Catarina</option>
+        <option value="SP" {% if fornecedor.uf == 'SP' %} selected {% endif %}>São Paulo</option>
+        <option value="SE" {% if fornecedor.uf == 'SE' %} selected {% endif %}>Sergipe</option>
+        <option value="TO" {% if fornecedor.uf == 'TO' %} selected {% endif %}>Tocantins</option>
+        <option value="EX" {% if fornecedor.uf == 'EX' %} selected {% endif %}>Estrangeiro</option>
+    </select>
+{% endif %}
