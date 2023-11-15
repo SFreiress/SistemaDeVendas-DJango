@@ -112,13 +112,9 @@
                 class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none">
         </div>
         <div>
-            <label for="ufInput" class="block mb-2 text-md font-medium">UF</label>
-            <input 
-                type="text" 
-                id="ufInput" 
-                name="uf" 
-                required
-                class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none">
+            <label for="ufInput"
+                class="block mb-2 text-md font-medium">UF</label>
+            {% include 'components/uf_select.html' with screen="create" %}
         </div>
     </div>
     <div class="grid grid-cols-1 gap-4 mb-6">
