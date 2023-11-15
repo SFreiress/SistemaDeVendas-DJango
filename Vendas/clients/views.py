@@ -1,13 +1,15 @@
 from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import Cliente
 
 
 # Create your views here.
+@login_required(login_url="/login/")
 def home(request):
     clientes = Cliente.objects.all()
     return render(request, "clients.html", {"clientes": clientes})
 
-
+@login_required(login_url="/login/")
 def create(request):
     if request.method == 'POST':
         Cliente.objects.create(
@@ -29,6 +31,7 @@ def create(request):
     
     return render(request, "create_client.html")
 
+@login_required(login_url="/login/")
 def edit(request, id):
     cliente = get_object_or_404(Cliente, pk=id)
     

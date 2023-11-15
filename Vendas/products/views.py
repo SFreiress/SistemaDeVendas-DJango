@@ -1,13 +1,15 @@
 from django.shortcuts import redirect, render, get_object_or_404
-
+from django.contrib.auth.decorators import login_required
 from .models import Produto
 
 
 # Create your views here.
+@login_required(login_url="/login/")
 def home(request):
     produtos = Produto.objects.all()
     return render(request, "list_product.html", {"produtos": produtos})
 
+@login_required(login_url="/login/")
 def create(request):
     if request.method == 'POST':
         Produto.objects.create(
@@ -19,6 +21,7 @@ def create(request):
 
     return render(request, "create_product.html")
 
+@login_required(login_url="/login/")
 def edit(request, id):
     produto = get_object_or_404(Produto, pk=id)
     

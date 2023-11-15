@@ -1,12 +1,15 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Funcionario
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+@login_required(login_url="/login/")
 def home(request):
     funcionarios = Funcionario.objects.all()
     return render(request, "employees.html", {"funcionarios": funcionarios})
 
+@login_required(login_url="/login/")
 def salvar(request):
     if request.method == 'POST':
         Funcionario.objects.create(
@@ -28,6 +31,7 @@ def salvar(request):
         return redirect('employees:home')
     return render(request, "registerEmployee.html")
 
+@login_required(login_url="/login/")
 def atualizar(request, id):
     if request.method == 'POST':
         funcionario = get_object_or_404(Funcionario, id=id)
