@@ -2,7 +2,6 @@ from django.shortcuts import redirect, render, get_object_or_404
 from .models import Funcionario
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
 @login_required(login_url="/login/")
 def home(request):
     funcionarios=Funcionario.objects.all()
