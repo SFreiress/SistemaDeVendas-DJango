@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ... -->
+  </head>
+
+  <body
+    class="w-full h-screen bg-zinc-900 text-gray-200 space-y-4 md:space-y-0 md:space-x-5"
+  >
+    <form method="POST" action="">
+      {% csrf_token %}
+      <div class="flex justify-center items-center h-screen">
+        <div class="flex flex-col items-center w-2/3">
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label for="username">Username</label>
+          </div>
+          <div class="form-outline mb-4">
+            <input type="text" name="username" />
+          </div>
+          
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <label for="password">Senha</label>
+          </div>
+          <div class="form-outline mb-4">
+            <input type="password" name="password" />
+          </div>
+          
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block mb-4">
+            Sign in
+          </button>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
