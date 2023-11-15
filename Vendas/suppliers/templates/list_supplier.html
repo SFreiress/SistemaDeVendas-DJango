@@ -1,17 +1,17 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="flex justify-between">
-        <h4 class="text-2xl font-bold mb-10">Clientes</h4>
-        <div>
-            <a href="{% url 'clients:create' %}">
+    <div class="grid grid-cols-4 gap-4 mb-6">
+        <h4 class="text-2xl font-bold mb-10">Fornecedores</h4>
+        <div class="col-span-3 justify-self-end">
+            <a href="{% url 'suppliers:create' %}">
                 <button
                     class="outline-none focus:ring-4 focus:ring-green-800 font-medium rounded-md text-md px-6 py-3 bg-green-600 hover:bg-green-700">Novo</button>
             </a>
         </div>
     </div>
-    <div class="grid grid-cols-4 gap-4 mb-6">
-        <div class="col-span-12 relative max-h-[700px] overflow-x-auto shadow-md rounded-md">
+    <div class="grid grid-cols-4 gap-4">
+        <div class="col-span-4 relative max-h-[700px] overflow-x-auto shadow-md rounded-md">
             <table class="w-full text-md text-left text-gray-300">
                 <thead class="text-md bg-zinc-700">
                     <tr>
@@ -19,13 +19,7 @@
                             Nome
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            RG
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            CPF
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            E-mail
+                            Email
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Telefone
@@ -40,51 +34,45 @@
                             Endereço
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Número
-                        </th>
-                        <th scope="col" class="px-6 py-3">
                             Cidade
                         </th>
                         <th scope="col" class="px-6 py-3">
                             UF
                         </th>
+                        <th scope="col" class="px-6 py-3">
+                            Ações
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for cliente in clientes %}
+                    {% for fornecedor in fornecedores %}
                         <tr class="border-y-2 border-zinc-500 hover:bg-zinc-700">
                             <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                {{cliente.nome}}
+                                {{fornecedor.nome}}
                             </th>
                             <td class="px-6 py-4">
-                                {{cliente.rg}}
+                                {{fornecedor.email}}
                             </td>
                             <td class="px-6 py-4">
-                                {{cliente.email}}
+                                {{fornecedor.telefone}}
                             </td>
                             <td class="px-6 py-4">
-                                {{cliente.telefone}}
+                                {{fornecedor.celular}}
                             </td>
                             <td class="px-6 py-4">
-                                {{cliente.celular}}
+                                {{fornecedor.cep}}
                             </td>
                             <td class="px-6 py-4">
-                                {{cliente.cep}}
+                                {{fornecedor.endereco}}
                             </td>
                             <td class="px-6 py-4">
-                                {{cliente.endereco}}
+                                {{fornecedor.cidade}}
                             </td>
                             <td class="px-6 py-4">
-                                {{cliente.numero}}
+                                {{fornecedor.uf}}
                             </td>
                             <td class="px-6 py-4">
-                                {{cliente.cidade}}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{cliente.uf}}
-                            </td>
-                            <td class="px-6 py-4">
-                                <a href="./edit/{{cliente.id}}">
+                                <a href="{% url 'suppliers:edit' fornecedor.id %}">
                                     <button
                                         class="outline-none focus:ring-4 focus:ring-blue-800 font-medium rounded-md text-md px-5 py-2.5 bg-blue-600 hover:bg-blue-700">
                                         <i class="fa-solid fa-pen"></i>
@@ -97,5 +85,5 @@
             </table>
         </div>
     </div>
-    
+
 {% endblock content %}
