@@ -36,12 +36,12 @@ def edit(request, id):
 
     if request.method == 'POST':
         funcionario.nome=request.POST.get("nome")
-        # funcionario.rg=request.POST.get("rg")
+        funcionario.rg=request.POST.get("rg")
         funcionario.cpf=request.POST.get("cpf")
         funcionario.email=request.POST.get("email")
-        # funcionario.senha=request.POST.get("senha")
-        # funcionario.cargo=request.POST.get("cargo")
-        # funcionario.nivel_acesso=request.POST.get("nivel_acesso")
+        funcionario.senha=request.POST.get("senha")
+        funcionario.cargo=request.POST.get("cargo")
+        funcionario.nivel_acesso=request.POST.get("nivel_acesso")
         funcionario.celular=request.POST.get("celular")
         funcionario.cep=request.POST.get("cep")
         funcionario.endereco=request.POST.get("endereco")

@@ -11,6 +11,7 @@
 - python manage.py runserver 
 - python manage.py runserver
 - python manage.py makemigrations
+- docker-compose up -d --build
 
 ## Padrões de Commit
 ### feat: adição de função
