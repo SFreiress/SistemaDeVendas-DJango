@@ -1,8 +1,9 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 
-def home(request):
+
+def login_user(request):
     if request.method == 'POST':
         username=request.POST.get('username')
         password=request.POST.get('password')
@@ -16,3 +17,8 @@ def home(request):
     return render(request, 'login.html')
 
 
+def logout_user(request):
+    if request.user.is_authenticated:
+        logout(request)
+
+    return redirect('/login/')
