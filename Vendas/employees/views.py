@@ -26,6 +26,7 @@ def create(request):
             complemento=request.POST.get("complemento"),
             bairro=request.POST.get("bairro"),
             cidade=request.POST.get("cidade"),
+            uf=request.POST.get("uf")
         )
         return redirect('employees:home')
 
@@ -51,6 +52,7 @@ def edit(request, id):
         funcionario.complemento=request.POST.get("complemento")
         funcionario.bairro=request.POST.get("bairro")
         funcionario.cidade=request.POST.get("cidade")
+        funcionario.uf=request.POST.get("uf")
         funcionario.save()
         return redirect('employees:home')
 
