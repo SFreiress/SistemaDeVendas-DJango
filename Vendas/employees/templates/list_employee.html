@@ -1,98 +1,89 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="flex justify-between">
-    <h1 class="text-xl">Funcionários</h1>
-    <a href="{% url 'employees:create' %}">
-        <button 
-            type="button"
-            class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-            <i class="fa-solid fa-plus"></i>
-        </button>
-    </a>
-</div>
-
-<br></br>
-
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                    Nome
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Email
-                </th>
-                <th scope="col" class="px-11 py-3">
-                    Telefone
-                </th>
-                <th scope="col" class="px-14 py-3">
-                    Celular
-                </th>
-                <th scope="col" class="px-14 py-3">
-                    CEP
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Endereço
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Nº
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Bairro
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Cidade
-                </th>
-                <th scope="col" class="px-3 py-1">
-                    UF
-                </th>
-                <th scope="col" class="px-3 py-1">
-                    Ações
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for funcionario in funcionarios %}
-                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                    <td class="px-6 py-4">
-                        {{funcionario.nome}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{funcionario.email}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{funcionario.telefone}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{funcionario.celular}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{funcionario.cep}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{funcionario.endereco}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{funcionario.numero}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{funcionario.bairro}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{funcionario.cidade}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{funcionario.uf}}
-                    </td>
-                    <td class="px-6 py-4">
-                        <a href="{% url 'employees:edit' funcionario.id %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+    <div class="grid grid-cols-4 gap-4 mb-6">
+        <h4 class="text-2xl font-bold mb-10">Funcionários</h4>
+        <div class="col-span-3 justify-self-end">
+            <a href="{% url 'employees:create' %}">
+                <button
+                    class="outline-none focus:ring-4 focus:ring-green-800 font-medium rounded-md text-md px-6 py-3 bg-green-600 hover:bg-green-700">Novo</button>
+            </a>
+        </div>
+    </div>
+    <div class="grid grid-cols-4 gap-4">
+        <div class="col-span-4 relative max-h-[700px] overflow-x-auto shadow-md rounded-md">
+            <table class="w-full text-md text-left text-gray-300">
+                <thead class="text-md bg-zinc-700">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Nome
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Email
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Telefone
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Celular
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            CEP
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Endereço
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Cidade
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            UF
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Ações
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for funcionario in funcionarios %}
+                        <tr class="border-y-2 border-zinc-500 hover:bg-zinc-700">
+                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                                {{funcionario.nome}}
+                            </th>
+                            <td class="px-6 py-4">
+                                {{funcionario.email}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{funcionario.telefone}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{funcionario.celular}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{funcionario.cep}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{funcionario.endereco}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{funcionario.cidade}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{funcionario.uf}}
+                            </td>
+                            <td class="px-6 py-4">
+                                <a href="{% url 'employees:edit' funcionario.id %}">
+                                    <button
+                                        class="outline-none focus:ring-4 focus:ring-blue-800 font-medium rounded-md text-md px-5 py-2.5 bg-blue-600 hover:bg-blue-700">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 {% endblock content %}

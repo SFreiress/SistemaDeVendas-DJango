@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $('#togglePassword').click(function () {
-    var passwordField = $('#password');
+    var passwordField = $('#passwordInput');
     var icon = $('#toggleIcon');
 
     if (passwordField.attr('type') === 'password') {

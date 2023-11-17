@@ -131,12 +131,11 @@
     <div class="grid grid-cols-1 gap-4 mb-6">
         <div class="col-span-2">
             <label for="complementoInput" class="block mb-2 text-md font-medium">Complemento</label>
-            <textarea 
-                value="{{cliente.complemento}}" 
+            <textarea
                 type="text" id="complementoInput" 
                 name="complemento" 
                 maxlength="100"
-                class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none"></textarea>
+                class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none">{{cliente.complemento}}</textarea>
         </div>
     </div>
     <div class="grid grid-cols-1 gap-4">

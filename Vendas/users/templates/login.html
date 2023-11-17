@@ -6,16 +6,16 @@
     <form class="w-1/5 flex flex-col justify-center items-center bg-zinc-800 p-10 rounded-xl space-y-5" method="POST">
       {% csrf_token %}
       <div class="w-full">
-        <label for="username"
+        <label for="usernameInput"
           class="block mb-2 text-md font-medium">Usuário</label>
-        <input type="text" id="username" name="username" required maxlength="100"
+        <input type="text" id="usernameInput" name="username" required maxlength="100"
           class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none">
       </div>
       <div class="w-full">
-        <label for="password"
+        <label for="passwordInput"
           class="block mb-2 text-md font-medium">Senha</label>
           <div class="relative">
-            <input type="password" id="password" name="password" required maxlength="100"
+            <input type="passwordInput" id="passwordInput" name="password" required maxlength="50"
               class="block w-full p-3 pr-10 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none">
         
             <span id="togglePassword" class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
@@ -31,5 +31,5 @@
 {% endblock layout %}
 
 {% block js %}
-  <script src="{% static 'users/js/password_toggle.js' %}"></script>
+  <script src="{% static 'core/js/password_toggle.js' %}"></script>
 {% endblock js %}

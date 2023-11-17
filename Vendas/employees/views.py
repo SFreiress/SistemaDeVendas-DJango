@@ -15,9 +15,10 @@ def create(request):
             rg=request.POST.get("rg"),
             cpf=request.POST.get("cpf"),
             email=request.POST.get("email"),
-            senha=request.POST.get("senha"),
+            senha=request.POST.get("password"),
             cargo=request.POST.get("cargo"),
-            nivel_acesso=request.POST.get("nivel_acesso"),
+            nivel_acesso=request.POST.get("nivelAcesso"),
+            telefone=request.POST.get("telefone"),
             celular=request.POST.get("celular"),
             cep=request.POST.get("cep"),
             endereco=request.POST.get("endereco"),
@@ -39,9 +40,10 @@ def edit(request, id):
         funcionario.rg=request.POST.get("rg")
         funcionario.cpf=request.POST.get("cpf")
         funcionario.email=request.POST.get("email")
-        funcionario.senha=request.POST.get("senha")
+        funcionario.senha=request.POST.get("password")
         funcionario.cargo=request.POST.get("cargo")
-        funcionario.nivel_acesso=request.POST.get("nivel_acesso")
+        funcionario.nivel_acesso=request.POST.get("nivelAcesso")
+        funcionario.telefone=request.POST.get("telefone")
         funcionario.celular=request.POST.get("celular")
         funcionario.cep=request.POST.get("cep")
         funcionario.endereco=request.POST.get("endereco")
