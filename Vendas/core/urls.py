@@ -26,8 +26,7 @@ app_name = 'core'
 urlpatterns = [
     path("", home, name="home"),
     path("admin/", admin.site.urls),
-    path("login/", include("django.contrib.auth.urls")),
-    path("login/", include("users.urls", namespace="users")),
+    path("", include("users.urls", namespace="users")),
     path("products/", include("products.urls", namespace="products")),
     path("clients/", include("clients.urls", namespace="clients")),
     path("employees/", include("employees.urls", namespace="employees")),

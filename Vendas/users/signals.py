@@ -1,8 +1,9 @@
 from django.db.models.signals import post_migrate
 from django.dispatch import receiver
-from django.contrib.auth.models import User
+from users.models import CustomUser
 
 @receiver(post_migrate)
-def create_default_user(sender, **kwargs):
-    if not User.objects.filter(username='admin').exists():
-        User.objects.create_superuser('admin', password='admin', )
+def create_default_user(**kwargs):
+    if not CustomUser.objects.filter(email='admin@admin.com').exists():
+        CustomUser.objects.create_superuser('admin',
+                        password='admin', email='admin@admin.com')
