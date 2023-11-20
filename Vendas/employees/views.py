@@ -1,15 +1,35 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Funcionario
 from django.contrib.auth.decorators import login_required
+from users.views import create_newuser
+from django.contrib import messages
+
 
 @login_required(login_url="/login/")
 def home(request):
-    funcionarios=Funcionario.objects.all()
+    funcionarios = Funcionario.objects.all()
     return render(request, "list_employee.html", {"funcionarios": funcionarios})
 
 @login_required(login_url="/login/")
 def create(request):
     if request.method == 'POST':
+        nome_completo = request.POST.get("nome")
+        partes_do_nome = nome_completo.split()
+        primeiro_nome = partes_do_nome[0]
+        ultimo_nome = partes_do_nome[-1] if len(partes_do_nome) > 1 else ""
+        password = request.POST.get("password")
+        newemail = request.POST.get("email")
+        nivel_acesso = request.POST.get("nivelAcesso")
+        if (nivel_acesso == "admin"):
+            try:
+                error_message = create_newuser(nome_completo, primeiro_nome, ultimo_nome, password, newemail)
+                if error_message:
+                    messages.error(request, error_message)
+                    return render(request, "create_employee.html")
+            except Exception as e:
+                messages.error(request, f"Erro ao criar usuário: {str(e)}")
+                return render(request, "create_employee.html")
+   
         Funcionario.objects.create(
             nome=request.POST.get("nome"),
             rg=request.POST.get("rg"),
