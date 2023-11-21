@@ -120,6 +120,13 @@
                     class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none">{{funcionario.complemento}}</textarea>
             </div>
         </div>
+        {% if messages %}
+            <ul class="messages text-red-400">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         <div class="grid grid-cols-4 gap-4">
             <div class="col-span-4 justify-self-end">
                 <a class="mr-4" href="{% url 'employees:home' %}">

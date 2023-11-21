@@ -1,6 +1,8 @@
 import uuid
 
 from django.db import models
+from users.models import CustomUser
+
 
 class Funcionario(models.Model):
     id = models.UUIDField(
@@ -22,3 +24,8 @@ class Funcionario(models.Model):
     bairro = models.CharField(max_length=50)
     cidade = models.CharField(max_length=50)  
     uf = models.CharField(max_length=50)
+    usuario = models.ForeignKey( 
+        CustomUser,
+        on_delete=models.CASCADE,
+        default=1
+    )
