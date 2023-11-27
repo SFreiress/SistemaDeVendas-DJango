@@ -1,0 +1,54 @@
+<nav class="navbar w-full md:w-1/6 h-fit md:h-full bg-zinc-800 rounded-xl flex flex-col">
+    <div class="navbar-header flex justify-between md:justify-center items-center md:text-center py-3 px-5 md:p-0 md:py-10">
+        <a href="/">
+            <h1 class="text-2xl md:text-4xl font-bold md:p-10" title="logo">Vendas</h1>
+        </a>
+        <div class="navbar-bars-button w-fit px-5 py-3 hover:bg-zinc-700 rounded-md block md:hidden">
+            <i class="fa-solid fa-bars text-2xl"></i>
+        </div>
+    </div>
+    <div class="navbar-content flex-1 hidden md:block overflow-y-auto">
+        <ul class="flex flex-col font-bold text-xl px-3 py-5 space-y-2 w-full">
+            <a href="/">
+                <li class="flex w-full px-7 py-5 hover:bg-zinc-700 rounded-md items-center space-x-5">
+                    <i class="fa-solid fa-house text-2xl"></i>
+                    <span>Home</span>
+                </li>
+            </a>
+            <a href="/products">
+                <li class="flex w-full px-7 py-5 hover:bg-zinc-700 rounded-md items-center space-x-5">
+                    <i class="fa-solid fa-box text-2xl"></i>
+                    <span>Products</span>
+                </li>
+            </a>
+            <a href="/clients">
+                <li class="flex w-full px-7 py-5 hover:bg-zinc-700 rounded-md items-center space-x-5">
+                    <i class="fa-solid fa-handshake text-2xl"></i>
+                    <span>Clientes</span>
+                </li>
+            </a>
+            <a href="/employees">
+                <li class="flex w-full px-7 py-5 hover:bg-zinc-700 rounded-md items-center space-x-5">
+                    <i class="fa-solid fa-briefcase text-2xl"></i>
+                    <span>Funcionários</span>
+                </li>
+            </a>
+            <a href="/suppliers">
+                <li class="flex w-full px-7 py-5 hover:bg-zinc-700 rounded-md items-center space-x-5">
+                    <i class="fa-solid fa-truck-field text-2xl"></i>
+                    <span>Fornecedores</span>
+                </li>
+            </a>
+        </ul>
+    </div>
+    <div class="navbar-footer hidden md:block">
+        <div class="h-fit font-bold text-xl px-3 py-5">
+            <a href="{% url 'users:logout_user' %}?next=/login/">
+                <div class="flex w-full px-7 py-5 hover:bg-red-500 rounded-md items-center space-x-5">
+                    <i class="fa-solid fa-right-from-bracket text-2xl"></i>
+                    <span>Exit</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</nav>

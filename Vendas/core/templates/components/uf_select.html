@@ -1,0 +1,65 @@
+{% if screen == "create" %}
+    <select id="ufInput" name="uf" required
+    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none">
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espírito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option>
+        <option value="SE">Sergipe</option>
+        <option value="TO">Tocantins</option>
+        <option value="EX">Estrangeiro</option>
+    </select>
+{% else %}
+    <select id="ufInput" name="uf" required
+        class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none">
+        <option value="AC" {% if pass.uf == 'AC' %} selected {% endif %}>Acre</option>
+        <option value="AL" {% if pass.uf == 'AL' %} selected {% endif %}>Alagoas</option>
+        <option value="AP" {% if pass.uf == 'AP' %} selected {% endif %}>Amapá</option>
+        <option value="AM" {% if pass.uf == 'AM' %} selected {% endif %}>Amazonas</option>
+        <option value="BA" {% if pass.uf == 'BA' %} selected {% endif %}>Bahia</option>
+        <option value="CE" {% if pass.uf == 'CE' %} selected {% endif %}>Ceará</option>
+        <option value="DF" {% if pass.uf == 'DF' %} selected {% endif %}>Distrito Federal</option>
+        <option value="ES" {% if pass.uf == 'ES' %} selected {% endif %}>Espírito Santo</option>
+        <option value="GO" {% if pass.uf == 'GO' %} selected {% endif %}>Goiás</option>
+        <option value="MA" {% if pass.uf == 'MA' %} selected {% endif %}>Maranhão</option>
+        <option value="MT" {% if pass.uf == 'MT' %} selected {% endif %}>Mato Grosso</option>
+        <option value="MS" {% if pass.uf == 'MS' %} selected {% endif %}>Mato Grosso do Sul</option>
+        <option value="MG" {% if pass.uf == 'MG' %} selected {% endif %}>Minas Gerais</option>
+        <option value="PA" {% if pass.uf == 'PA' %} selected {% endif %}>Pará</option>
+        <option value="PB" {% if pass.uf == 'PB' %} selected {% endif %}>Paraíba</option>
+        <option value="PR" {% if pass.uf == 'PR' %} selected {% endif %}>Paraná</option>
+        <option value="PE" {% if pass.uf == 'PE' %} selected {% endif %}>Pernambuco</option>
+        <option value="PI" {% if pass.uf == 'PI' %} selected {% endif %}>Piauí</option>
+        <option value="RJ" {% if pass.uf == 'RJ' %} selected {% endif %}>Rio de Janeiro</option>
+        <option value="RN" {% if pass.uf == 'RN' %} selected {% endif %}>Rio Grande do Norte</option>
+        <option value="RS" {% if pass.uf == 'RS' %} selected {% endif %}>Rio Grande do Sul</option>
+        <option value="RO" {% if pass.uf == 'RO' %} selected {% endif %}>Rondônia</option>
+        <option value="RR" {% if pass.uf == 'RR' %} selected {% endif %}>Roraima</option>
+        <option value="SC" {% if pass.uf == 'SC' %} selected {% endif %}>Santa Catarina</option>
+        <option value="SP" {% if pass.uf == 'SP' %} selected {% endif %}>São Paulo</option>
+        <option value="SE" {% if pass.uf == 'SE' %} selected {% endif %}>Sergipe</option>
+        <option value="TO" {% if pass.uf == 'TO' %} selected {% endif %}>Tocantins</option>
+        <option value="EX" {% if pass.uf == 'EX' %} selected {% endif %}>Estrangeiro</option>
+    </select>
+{% endif %}

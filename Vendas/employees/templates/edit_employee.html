@@ -1,0 +1,147 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+    <h4 class="text-2xl font-bold mb-10">Edição de Funcionário</h4>
+    <form class="text-gray-300" action="{% url 'employees:edit' funcionario.id %}" method="POST">
+        {% csrf_token %}
+        <div class="grid grid-cols-4 gap-4 mb-6">
+            <div>
+                <label for="nomeInput"
+                    class="block mb-2 text-md font-medium">Nome</label>
+                <input type="text" id="nomeInput" name="nome" required maxlength="100"
+                    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none" value="{{funcionario.nome}}">
+            </div>
+            <div>
+                <label for="rgInput"
+                    class="block mb-2 text-md font-medium">RG</label>
+                <input type="text" id="rgInput" name="rg" required maxlength="20"
+                    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none" value="{{funcionario.rg}}">
+            </div>
+            <div>
+                <label for="cpfInput"
+                    class="block mb-2 text-md font-medium">CPF</label>
+                <input type="text" id="cpfInput" name="cpf" required maxlength="30"
+                    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none" value="{{funcionario.cpf}}">
+            </div>
+            <div>
+                <label for="emailInput"
+                    class="block mb-2 text-md font-medium">Email</label>
+                <input type="email" id="emailInput" name="email" required maxlength="100"
+                    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none" value="{{funcionario.email}}">
+                <p id="emailMessage" class="mt-2 text-sm font-medium"></p>
+            </div>
+        </div>
+        <div class="grid grid-cols-4 gap-4 mb-6">
+            <div>
+                <label for="telefoneInput"
+                    class="block mb-2 text-md font-medium">Telefone</label>
+                <input type="text" id="telefoneInput" name="telefone" required maxlength="20"
+                    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none" value="{{funcionario.telefone}}">
+            </div>
+            <div>
+                <label for="celularInput"
+                    class="block mb-2 text-md font-medium">Celular</label>
+                <input type="text" id="celularInput" name="celular" required maxlength="20"
+                    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none" value="{{funcionario.celular}}">
+            </div>
+            <div>
+                <label for="cepInput"
+                    class="block mb-2 text-md font-medium">CEP</label>
+                <input type="text" id="cepInput" name="cep" required maxlength="20"
+                    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none" value="{{funcionario.cep}}">
+            </div>
+            <div>
+                <label for="enderecoInput"
+                    class="block mb-2 text-md font-medium">Endereco</label>
+                <input type="text" id="enderecoInput" name="endereco" required maxlength="200"
+                    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none" value="{{funcionario.endereco}}">
+            </div>
+        </div>
+        <div class="grid grid-cols-4 gap-4 mb-6">
+            <div>
+                <label for="numeroInput"
+                    class="block mb-2 text-md font-medium">Número</label>
+                <input type="text" id="numeroInput" name="numero" required maxlength="10"
+                    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none" value="{{funcionario.numero}}">
+            </div>
+            <div>
+                <label for="bairroInput"
+                    class="block mb-2 text-md font-medium">Bairro</label>
+                <input type="text" id="bairroInput" name="bairro" required maxlength="50"
+                    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none" value="{{funcionario.bairro}}">
+            </div>
+            <div>
+                <label for="cidadeInput"
+                    class="block mb-2 text-md font-medium">Cidade</label>
+                <input type="text" id="cidadeInput" name="cidade" required maxlength="50"
+                    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none" value="{{funcionario.cidade}}">
+            </div>
+            <div>
+                <label for="ufInput"
+                    class="block mb-2 text-md font-medium">UF</label>
+                {% include 'components/uf_select.html' with pass=funcionario screen="edit" %}
+            </div>
+        </div>
+        <div class="grid grid-cols-4 gap-4 mb-6">
+            <div>
+                <label for="cargoInput"
+                    class="block mb-2 text-md font-medium">Cargo</label>
+                <input type="text" id="cargoInput" name="cargo" required maxlength="50"
+                    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none" value="{{funcionario.cargo}}">
+            </div>
+            <div>
+                <label for="passwordInput"
+                    class="block mb-2 text-md font-medium">Senha</label>
+                    <div class="relative">
+                        <input type="password" id="passwordInput" name="password" required maxlength="50"
+                            class="block w-full p-3 pr-10 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none" value="{{funcionario.senha}}">
+                
+                        <span id="togglePassword" class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+                            <i class="far fa-eye-slash" id="toggleIcon"></i>
+                        </span>
+                    </div>
+            </div>
+            <div>
+                <label for="nivelAcessoInput"
+                    class="block mb-2 text-md font-medium">Nível de Acesso</label>
+                <select id="nivelAcessoInput" name="nivelAcesso" required
+                class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none">
+                    <option value="user" {% if funcionario.nivel_acesso == 'user' %} selected {% endif %}>Usuário</option>
+                    <option value="admin" {% if funcionario.nivel_acesso == 'admin' %} selected {% endif %}>Admin</option>
+                </select>
+            </div>
+        </div>
+        <div class="grid grid-cols-4 gap-4 mb-6">
+            <div class="col-span-4">
+                <label for="complementoInput"
+                    class="block mb-2 text-md font-medium">Complemento</label>
+                <textarea type="text" id="complementoInput" name="complemento" maxlength="50"
+                    class="block w-full p-3 rounded-md bg-zinc-700 focus:ring-4 focus:ring-zinc-500 outline-none">{{funcionario.complemento}}</textarea>
+            </div>
+        </div>
+        {% if messages %}
+            <ul class="messages text-red-400">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        <div class="grid grid-cols-4 gap-4">
+            <div class="col-span-4 justify-self-end">
+                <a class="mr-4" href="{% url 'employees:home' %}">
+                    <button type="button"
+                        class="outline-none focus:ring-4 focus:ring-red-800 font-medium rounded-md text-md px-6 py-3 bg-red-600 hover:bg-red-700">Cancelar</button>
+                </a>
+                <button type="submit"
+                    class="outline-none focus:ring-4 focus:ring-green-800 font-medium rounded-md text-md px-6 py-3 bg-green-600 hover:bg-green-700">Salvar</button>
+            </div>
+        </div>
+    </form>
+{% endblock content %}
+
+{% block js %}
+  <script src="{% static 'employees/js/input_patterns.js' %}"></script>
+  <script src="{% static 'core/js/cep_finder.js' %}"></script>
+  <script src="{% static 'core/js/password_toggle.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block layout %}
+  <main class="flex flex-col md:flex-row w-full h-screen bg-zinc-900 text-gray-200 space-y-3 md:space-y-0 md:space-x-5 p-5">
+    {% include "./components/navbar.html" %}
+    <section class="w-full md:w-5/6 h-full rounded-xl">
+      <div class="h-full max-h-full bg-zinc-800 rounded-xl p-10 overflow-y-auto">
+        {% block content %}{% endblock content %}
+      </div>
+    </section>
+  </main>
+{% endblock layout %}
+
+{% block js %}
+  <script src="{% static 'core/js/navbar.js' %}"></script>
+{% endblock js %}

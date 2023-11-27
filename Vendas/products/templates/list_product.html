@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="grid grid-cols-4 gap-4 mb-6">
+        <h4 class="text-2xl font-bold mb-10">Produtos</h4>
+        <div class="col-span-3 justify-self-end">
+            <a href="{% url 'products:create' %}">
+                <button
+                    class="outline-none focus:ring-4 focus:ring-green-800 font-medium rounded-md text-md px-6 py-3 bg-green-600 hover:bg-green-700">Novo</button>
+            </a>
+        </div>
+    </div>
+    <div class="grid grid-cols-4 gap-4">
+        <div class="col-span-4 relative max-h-[700px] overflow-x-auto shadow-md rounded-md">
+            <table class="w-full text-md text-left text-gray-300">
+                <thead class="text-md bg-zinc-700">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Descrição
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Preço
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Quantidade
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Ações
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                        <tr class="border-y-2 border-zinc-500 hover:bg-zinc-700">
+                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                                {{produto.descricao}}
+                            </th>
+                            <td class="px-6 py-4">
+                                R$ {{produto.preco}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{produto.qtd_estoque}}
+                            </td>
+                            <td class="px-6 py-4">
+                                <a href="{% url 'products:edit' produto.id %}">
+                                    <button
+                                        class="outline-none focus:ring-4 focus:ring-blue-800 font-medium rounded-md text-md px-5 py-2.5 bg-blue-600 hover:bg-blue-700">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock content %}
